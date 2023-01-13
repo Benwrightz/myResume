@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if message_name %}
+<center>
+    <h2>------</h2>
+    <h2>Thanks {{message_name}}!</h2>
+    <p>I received your email and will respond shortly...</p>
+</center>
+<br/><br/><br/>
+{% else %}
+  
+<div class="section contact" id="contact">
+    <div id="map" class="map"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="contact-form-card">
+                    <h4 class="contact-title">Contact</h4>
+                    <form action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input  class="form-control" type="text" name="message-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="message-email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" id=" placeholder="Message *" rows="7" required></textarea>
+                        </div>
+                        <div class="form-group ">
+                            <button type="submit" class="form-control btn btn-primary" >Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-info-card">
+                    <h4 class="contact-title">Get in touch</h4>
+                    <div class="row mb-2">
+                        <div class="col-1 pt-1 mr-1">
+                            <i class="ti-mobile icon-md"></i>
+                        </div>
+                        <div class="col-10 ">
+                            <h6 class="d-inline">Phone : <br> <span class="text-muted">+48 780 613 188</span></h6>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-1 pt-1 mr-1">
+                            <i class="ti-skype icon-md"></i>
+                        </div>
+                        <div class="col-10">
+                            <h6 class="d-inline">Skype :<br> <span class="text-muted">codewithben1</span></h6>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-1 pt-1 mr-1">
+                            <i class="ti-email icon-md"></i>
+                        </div>
+                        <div class="col-10">
+                            <h6 class="d-inline">Email :<br> <span class="text-muted">codewithben1@gmail.com</span></h6>
+                        </div>
+                    </div>
+                    <ul class="social-icons pt-4">
+                        <li class="social-item"><a class="social-link text-dark" href="https://www.linkedin.com/in/onyeka-benjamin-007847248"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://twitter.com/Codewithben1"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://stackoverflow.com/users/20761082/codewithben"><i class="ti-stack-overflow" aria-hidden="true"></i></a></li>
+                        <li class="social-item"><a class="social-link text-dark" href="https://github.com/Benwrightz"><i class="ti-github" aria-hidden="true"></i></a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock  %}
