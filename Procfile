@@ -1,1 +1,1 @@
-web: gunicorn Vibe.wsgi --log-file -
+web: python manage.py migrate && gunicorn Vibe.wsgi
