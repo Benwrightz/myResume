@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "myresume",
+    "whitenoise.runserver_nostatic", 
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "Vibe.urls"
@@ -125,6 +127,10 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+<<<<<<< HEAD
+=======
+STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
+>>>>>>> 15cffb22f27a54601ad37cd8321998b778fbc302
 
 
 # Default primary key field type
@@ -138,3 +144,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = env("DJANGO_EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
+
+CSRF_TRUSTED_ORIGINS = ["https://myresume-production-fa70.up.railway.app", 
+]

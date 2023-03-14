@@ -1,1 +1,1 @@
-web gunicorn myresume.wsgi:application --log-file -
+web: python manage.py migrate && gunicorn Vibe.wsgi
