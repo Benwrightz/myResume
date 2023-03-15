@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 import environ
 
+
 env = environ.Env()
 environ.Env.read_env()
 
@@ -29,7 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DJANGO_DEBUG")
+DEBUG = env("DJANGO_DEBUG", default=True)
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -127,10 +129,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-<<<<<<< HEAD
-=======
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
->>>>>>> 15cffb22f27a54601ad37cd8321998b778fbc302
 
 
 # Default primary key field type
@@ -145,5 +144,4 @@ EMAIL_HOST_USER = env("DJANGO_EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("DJANGO_EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 
-CSRF_TRUSTED_ORIGINS = ["https://myresume-production-fa70.up.railway.app", 
-]
+CSRF_TRUSTED_ORIGINS = []
